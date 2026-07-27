@@ -131,7 +131,8 @@ for (let attempt = 1; attempt <= 3; attempt++) {
 let generatedStudyKit;
 
 try {
-  result = JSON.parse(text);
+  generatedStudyKit = JSON.parse(text);
+
 } catch {
   return res.status(500).json({
     success: false,
@@ -142,10 +143,14 @@ try {
 
 res.json({
   success: true,
-  result,
+  result: generatedStudyKit,
 });
   } catch (error) {
-  console.error("Full Error:", error);
+  console.error("========== FULL ERROR ==========");
+  console.error(error);
+  console.error("Status:", error.status);
+  console.error("Message:", error.message);
+  console.error("Stack:", error.stack);
 
   let status = 500;
   let message = "Something went wrong. Please try again.";

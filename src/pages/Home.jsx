@@ -53,11 +53,11 @@ abortControllerRef.current = new AbortController();
 
       const apiResponse = await response.json();
 
-      if (data.success) {
+if (apiResponse.success) {
   const generatedStudyKit = apiResponse.result;
 
-  if (
-    !result ||
+if (
+  !generatedStudyKit ||
     typeof result.summary !== "string" ||
     !Array.isArray(result.flashcards) ||
     !Array.isArray(result.quiz)
@@ -69,18 +69,17 @@ abortControllerRef.current = new AbortController();
   
 
 
-setStudyKit(result);
+setStudyKit(generatedStudyKit);
 
   const newItem = {
     id: crypto.randomUUID(),
     title: notes.split("\n")[0].trim().substring(0, 50),
     date: new Date().toLocaleString(),
-    studyKit: result,
+    studyKit: generatedStudyKit,
   };
-  if (currentRequestId !== latestRequestId.current) {
+if (currentRequestId !== latestRequestId.current) {
     return;
 }
-
   const updatedHistory = [newItem, ...history];
 
   setHistory(updatedHistory);
@@ -90,7 +89,7 @@ setStudyKit(result);
     JSON.stringify(updatedHistory)
   );
 } else {
-  toast.error(data.message);
+  toast.error(apiResponse.message);
 }
     } catch (error) {
   if (error.name === "AbortError") {
