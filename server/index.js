@@ -94,10 +94,10 @@ for (let attempt = 1; attempt <= 3; attempt++) {
   try {
     
 
-    response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
-      contents: prompt,
-    });
+    aiResponse = await ai.models.generateContent({
+  model: "gemini-3.5-flash",
+  contents: prompt,
+});
 
     
     break;
