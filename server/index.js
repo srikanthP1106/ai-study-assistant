@@ -126,6 +126,8 @@ for (let attempt = 1; attempt <= 3; attempt++) {
     
 
     const text = aiResponse.candidates[0].content.parts[0].text;
+    console.log("Gemini Raw Response:");
+console.log(text);
 
 
 let generatedStudyKit;
