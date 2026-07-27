@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { jsPDF } from "jspdf";
 import { extractTextFromPDF } from "../utils/pdfExtractor";
 import Quiz from "../components/quiz/Quiz";
-import History from "../components/history/History";
+import History from "../components/History/History";
 import { toast } from "react-toastify";
 import { FaSpinner } from "react-icons/fa";
 
