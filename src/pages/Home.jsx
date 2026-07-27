@@ -26,7 +26,7 @@ const abortControllerRef = useRef(null);
       toast.warning("Please enter your study notes first.");
       return;
     }
-    latestRequestId.current += 1;
+    
 
 
     if (abortControllerRef.current) {
