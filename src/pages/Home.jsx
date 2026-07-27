@@ -40,7 +40,7 @@ abortControllerRef.current = new AbortController();
     
 
     try {
-      const response = await fetch("http://localhost:5000/generate", {
+      const response = await fetch("https://ai-study-assistant-8ogw.onrender.com/generate",{
   method: "POST",
   headers: {
     "Content-Type": "application/json",
