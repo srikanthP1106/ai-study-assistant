@@ -82,29 +82,23 @@ ai-study-assistant/
 
 ### 🏠 Home Page
 
-(Add screenshot)
-
-### 📄 PDF Upload
-
-(Add screenshot)
+![Home](screenshots/home.png)
 
 ### 📚 Generated Study Kit
 
-(Add screenshot)
+![Study Kit](screenshots/study-kit.png)
 
 ### 🧠 Flashcards
 
-(Add screenshot)
+![Flashcards](screenshots/flashcards.png)
 
 ### 📝 Interactive Quiz
 
-(Add screenshot)
+![Quiz](screenshots/quiz.png)
 
 ### 🕘 Study History
 
-(Add screenshot)
-
----
+![History](screenshots/history.png)
 
 ## ⚙️ Installation
 
