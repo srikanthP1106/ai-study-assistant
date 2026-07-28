@@ -1,55 +1,108 @@
 # 📚 AI Study Assistant
 
-An AI-powered Study Assistant that helps students quickly generate study material from their notes using Google's Gemini API.
-
-## 🚀 Features
-
-- 📄 Generate AI Summary
-- 🧠 AI Flashcards
-- ❓ Interactive Quiz
-- 📊 Quiz Score & Progress Bar
-- 📂 Upload Notes (PDF/Text)
-- 📥 Download Study Kit as PDF
-- 📋 Copy Study Kit
-- 🕒 Study History
-- 🔍 Search History
-- 🗑 Delete History
-- ⚡ Loading Spinner
-- 🔔 Toast Notifications
-- 🛡 Error Handling
-- 🔄 Automatic Retry for AI Requests
-- ✅ JSON Validation
+An AI-powered full-stack web application that transforms study notes into concise summaries, interactive flashcards, and quizzes using Google Gemini AI. Users can upload PDF lecture notes, generate study material instantly, and save previous study sessions.
 
 ---
 
-## 🛠 Tech Stack
+## 🚀 Live Demo
+
+**Frontend:** https://your-vercel-url.vercel.app
+
+**Backend API:** https://your-render-url.onrender.com
+
+---
+
+## ✨ Features
+
+- 🤖 AI-generated study summaries
+- 🧠 AI-generated flashcards
+- 📝 Interactive multiple-choice quizzes
+- 📄 PDF lecture notes upload
+- 📥 Download study kit as PDF
+- 📋 Copy study kit to clipboard
+- 🕘 Study history with search
+- 🗑️ Delete study history
+- 💾 Local storage persistence
+- ⏳ Loading spinner
+- 🔔 Toast notifications
+- 🔄 Retry logic for AI requests
+- ❌ Robust error handling
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
+
 - React
 - Vite
 - Tailwind CSS
-- React Toastify
 - React Icons
-- jsPDF
+- React Toastify
 
 ### Backend
+
 - Node.js
 - Express.js
+
+### AI
+
 - Google Gemini API
+
+### Libraries
+
+- jsPDF
+- pdf.js
 
 ---
 
 ## 📂 Project Structure
 
-```
+```text
 ai-study-assistant/
 │
 ├── src/
-├── public/
+│   ├── components/
+│   ├── pages/
+│   ├── utils/
+│   └── App.jsx
+│
 ├── server/
-├── package.json
+│   ├── index.js
+│   ├── package.json
+│   └── .env
+│
+├── public/
 └── README.md
 ```
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+(Add screenshot)
+
+### 📄 PDF Upload
+
+(Add screenshot)
+
+### 📚 Generated Study Kit
+
+(Add screenshot)
+
+### 🧠 Flashcards
+
+(Add screenshot)
+
+### 📝 Interactive Quiz
+
+(Add screenshot)
+
+### 🕘 Study History
+
+(Add screenshot)
 
 ---
 
@@ -59,6 +112,12 @@ ai-study-assistant/
 
 ```bash
 git clone https://github.com/srikanthP1106/ai-study-assistant.git
+```
+
+### Navigate to the project
+
+```bash
+cd ai-study-assistant
 ```
 
 ### Install frontend dependencies
@@ -74,19 +133,20 @@ cd server
 npm install
 ```
 
----
-
-## 🔑 Environment Variables
-
-Create a `.env` file inside the `server` folder.
+### Create a `.env` file inside the `server` folder
 
 ```env
-GEMINI_API_KEY=your_api_key_here
+GEMINI_API_KEY=YOUR_API_KEY
 ```
 
----
+### Start the backend
 
-## ▶️ Run Frontend
+```bash
+cd server
+npm start
+```
+
+### Start the frontend
 
 ```bash
 npm run dev
@@ -94,21 +154,26 @@ npm run dev
 
 ---
 
-## ▶️ Run Backend
+## 💡 Future Improvements
 
-```bash
-cd server
-node index.js
-```
-
----
-
-## 📸 Screenshots
-
-(Add screenshots here after deployment.)
+- User authentication
+- Cloud database integration
+- AI difficulty levels
+- Dark/Light mode
+- Multiple AI model support
+- Share study kits
+- Voice-based study mode
 
 ---
 
 ## 👨‍💻 Author
 
-**Srikanth Paruchuri P1106**
+**Srikanth Paruchuri**
+
+- GitHub: https://github.com/srikanthP1106
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
