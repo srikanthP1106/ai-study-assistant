@@ -421,36 +421,27 @@ Approximately **8 hours**
 
 ## Screenshots
 
+## Screenshots
+
 ### Home
 
-```md
 ![Home](screenshots/home.png)
-```
 
 ### Generated Study Kit
 
-```md
 ![Study Kit](screenshots/study-kit.png)
-```
 
 ### Flashcards
 
-```md
 ![Flashcards](screenshots/flashcards.png)
-```
 
 ### Quiz
 
-```md
 ![Quiz](screenshots/quiz.png)
-```
 
 ### Study History
 
-```md
 ![History](screenshots/history.png)
-```
-
 ---
 
 ## Author
