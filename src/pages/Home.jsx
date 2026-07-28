@@ -58,13 +58,13 @@ if (apiResponse.success) {
 
 if (
   !generatedStudyKit ||
-    typeof result.summary !== "string" ||
-    !Array.isArray(result.flashcards) ||
-    !Array.isArray(result.quiz)
-  ) {
-    toast.error("AI returned an invalid response. Please try again.");
-    return;
-  }
+  typeof generatedStudyKit.summary !== "string" ||
+  !Array.isArray(generatedStudyKit.flashcards) ||
+  !Array.isArray(generatedStudyKit.quiz)
+) {
+  toast.error("AI returned an invalid response. Please try again.");
+  return;
+}
 
   
 
@@ -77,9 +77,7 @@ setStudyKit(generatedStudyKit);
     date: new Date().toLocaleString(),
     studyKit: generatedStudyKit,
   };
-if (currentRequestId !== latestRequestId.current) {
-    return;
-}
+
   const updatedHistory = [newItem, ...history];
 
   setHistory(updatedHistory);
