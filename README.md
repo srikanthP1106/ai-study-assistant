@@ -1,81 +1,207 @@
-# 📚 AI Study Assistant
+# AI Study Assistant
 
-An AI-powered full-stack web application that transforms study notes into concise summaries, interactive flashcards, and interactive quizzes using Google Gemini AI. Users can paste study notes or upload PDF lecture notes to instantly generate AI-powered learning material. The application provides an engaging and interactive way to study while handling unreliable AI responses gracefully.
+AI Study Assistant is a full-stack web application that transforms study notes or lecture PDFs into structured learning material using Google Gemini AI. Instead of displaying raw AI responses like a chatbot, the application validates the generated content and presents it as concise summaries, interactive flashcards, and multiple-choice quizzes.
 
----
+The project was built as part of a Frontend Internship Assignment with a focus on responsive user experience, secure AI integration, structured data handling, and reliable error recovery.
 
-# 🚀 Live Demo
+## Live Demo
 
-**Frontend:** https://ai-study-assistant-five-rouge.vercel.app
+Frontend
 
-**Backend API:** https://ai-study-assistant-8ogw.onrender.com
+https://ai-study-assistant-five-rouge.vercel.app
 
----
+Backend
 
-# ✨ Features
-
-- 🤖 AI-generated study summaries
-- 🧠 AI-generated flashcards
-- 📝 Interactive multiple-choice quizzes
-- 📄 Upload lecture notes as PDF
-- 📥 Download generated study kit as PDF
-- 📋 Copy study kit to clipboard
-- 🕘 Study history with search functionality
-- 🗑️ Delete study history
-- 💾 Local storage persistence
-- ⏳ Loading spinner
-- 🔔 Toast notifications
-- 🔄 Retry logic for failed AI requests
-- ❌ Robust AI response validation and error handling
-- 📱 Responsive design for desktop and mobile devices
+https://ai-study-assistant-8ogw.onrender.com
 
 ---
 
-# 🎯 Usage
+## Features
 
-1. Enter a study topic or paste your study notes into the text area.
-2. (Optional) Upload a PDF containing lecture notes.
-3. Click **Generate Study Kit**.
-4. Review the AI-generated summary.
-5. Flip the flashcards to test your knowledge.
-6. Take the interactive quiz and view your score.
-7. Copy or download the generated study kit.
-8. Access previous study sessions from the history panel.
+The application provides the following functionality.
 
----
-
-# 🤖 AI Usage
-
-This project was developed with assistance from AI tools (ChatGPT) for brainstorming ideas, debugging, reviewing code, improving error handling, and refining the application. All application logic, customization, integration, testing, deployment, and final implementation were completed and verified by the author.
-
----
-
-# 🔒 API Security
-
-The Google Gemini API key is **never exposed in the browser**.
-
-All AI requests are securely routed through an Express.js backend using environment variables (`.env`). This protects the API key while allowing the frontend to communicate safely with the AI model.
+- Generate AI-powered study summaries
+- Generate interactive flashcards
+- Generate multiple-choice quizzes
+- Upload lecture notes in PDF format
+- Download generated study kits as PDF
+- Copy generated study kits to the clipboard
+- Store study history locally
+- Search previous study sessions
+- Delete unwanted history
+- Responsive user interface
+- Loading indicators during AI generation
+- Toast notifications
+- Retry failed AI requests
+- Validation of malformed AI responses
 
 ---
 
-# ⚠️ Known Limitations
+## How it works
 
-- AI responses depend on the quality of the input provided by the user.
-- Very large PDF files may require additional processing time.
-- Occasionally the AI may return malformed JSON, which is handled using validation, retry logic, and user-friendly error messages.
-- Study history is stored locally in the browser and is not synchronized across multiple devices.
+```
+Browser (React + Vite)
+        │
+        │
+        ▼
+Express Backend
+        │
+        │
+        ▼
+Google Gemini API
+        │
+        ▼
+Validated JSON Response
+        │
+        ▼
+Summary
+Flashcards
+Quiz
+History
+```
+
+The browser collects either a study topic, custom notes, or text extracted from an uploaded PDF.
+
+The request is sent to an Express backend that securely communicates with Google Gemini.
+
+After receiving the response, the application validates the returned structure before rendering any content. Only valid data is displayed to the user.
+
+This approach prevents malformed AI responses from breaking the user interface.
 
 ---
 
-# ⏱️ Time Spent
+## AI Generation Pipeline
 
-Approximately **8 hours**.
+Every study session follows the same workflow.
+
+```
+User Input
+      │
+      ▼
+Study Topic / Notes / PDF
+      │
+      ▼
+Express Backend
+      │
+      ▼
+Google Gemini
+      │
+      ▼
+Structured Response
+      │
+      ▼
+Validation
+      │
+      ▼
+Summary
+Flashcards
+Quiz
+```
+
+The backend is responsible for communicating with Gemini while keeping the API key secure.
+
+The frontend focuses on presenting the generated study material through an interactive learning experience.
 
 ---
 
-# 🛠️ Tech Stack
+## PDF Processing
 
-## Frontend
+Instead of manually copying large lecture notes, users can upload a PDF directly.
+
+The application extracts text from the uploaded document and combines it with the user's request before sending it to Gemini.
+
+```
+Upload PDF
+      │
+      ▼
+Extract Text
+      │
+      ▼
+Send to Gemini
+      │
+      ▼
+Generate Study Kit
+```
+
+This allows users to generate summaries, flashcards, and quizzes directly from lecture notes.
+
+---
+
+## Study History
+
+Every generated study kit is automatically stored in Local Storage.
+
+Users can
+
+- revisit previous study sessions
+- search by topic
+- delete unwanted entries
+- continue learning without generating the same content again
+
+Since the history is stored locally, no user information is uploaded to a database.
+
+---
+
+## Response Validation
+
+AI models do not always return perfectly structured responses.
+
+Before displaying any generated content, the application validates the received data.
+
+The following situations are handled gracefully.
+
+| Situation | Behaviour |
+| ---------- | --------- |
+| Empty input | User is asked to enter valid content |
+| Invalid AI response | Error message is displayed |
+| Failed request | Retry option is available |
+| Network failure | Friendly error notification |
+| Slow response | Loading indicator remains visible |
+| Missing content | Invalid sections are ignored safely |
+
+These validation steps improve reliability and prevent unexpected AI responses from affecting the overall user experience.
+
+---
+
+## API Security
+
+The Gemini API key is never exposed to the browser.
+
+Every AI request passes through an Express backend using environment variables.
+
+```
+React Frontend
+        │
+        ▼
+Express Backend
+        │
+        ▼
+Google Gemini API
+```
+
+This architecture keeps the API credentials secure while allowing the frontend to communicate safely with the AI service.
+
+---
+
+## User Experience
+
+The application was designed to provide a simple and distraction-free learning experience.
+
+Key design goals include
+
+- clean interface
+- responsive layout
+- minimal user interaction
+- quick navigation
+- interactive flashcards
+- instant quiz scoring
+- smooth loading experience
+- informative notifications
+
+The objective is to help students spend more time learning and less time organizing study material.
+## Tech Stack
+
+### Frontend
 
 - React
 - Vite
@@ -83,37 +209,40 @@ Approximately **8 hours**.
 - React Icons
 - React Toastify
 
-## Backend
+### Backend
 
 - Node.js
 - Express.js
 
-## AI
+### AI
 
 - Google Gemini API
 
-## Libraries
+### Libraries
 
-- jsPDF
 - pdf.js
+- jsPDF
 
 ---
 
-# 📂 Project Structure
+## Project Structure
 
-```text
-ai-study-assistant/
+```
+ai-study-assistant
 │
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── utils/
-│   └── App.jsx
+├── public/
 │
 ├── server/
 │   ├── index.js
 │   ├── package.json
 │   └── .env
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── utils/
+│   ├── App.jsx
+│   └── main.jsx
 │
 ├── screenshots/
 │   ├── home.png
@@ -122,116 +251,222 @@ ai-study-assistant/
 │   ├── quiz.png
 │   └── history.png
 │
-├── public/
-│
+├── package.json
 └── README.md
 ```
 
----
+The frontend is responsible for user interaction, study history, PDF upload, and rendering AI-generated content.
 
-# 📸 Screenshots
-
-## 🏠 Home Page
-
-![Home](screenshots/home.png)
+The backend securely communicates with Google Gemini and returns structured responses to the frontend.
 
 ---
 
-## 📚 Generated Study Kit
+## Running the Project
 
-![Study Kit](screenshots/study-kit.png)
+### Requirements
 
----
+- Node.js 18 or later
+- Google Gemini API Key
 
-## 🧠 Flashcards
-
-![Flashcards](screenshots/flashcards.png)
-
----
-
-## 📝 Interactive Quiz
-
-![Quiz](screenshots/quiz.png)
-
----
-
-## 🕘 Study History
-
-![History](screenshots/history.png)
-
----
-
-# ⚙️ Installation
-
-## Clone the repository
+Clone the repository.
 
 ```bash
 git clone https://github.com/srikanthP1106/ai-study-assistant.git
 ```
 
-## Navigate to the project
+Move into the project directory.
 
 ```bash
 cd ai-study-assistant
 ```
 
-## Install frontend dependencies
+Install frontend dependencies.
 
 ```bash
 npm install
 ```
 
-## Install backend dependencies
+Move into the backend directory.
 
 ```bash
 cd server
 npm install
 ```
 
-## Create a `.env` file inside the `server` folder
+Create a `.env` file inside the `server` directory.
 
 ```env
 GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 ```
 
-## Start the backend server
+Start the backend.
 
 ```bash
 cd server
 npm start
 ```
 
-## Start the frontend
+Open another terminal and start the frontend.
 
 ```bash
 npm run dev
 ```
 
+Open
+
+```
+http://localhost:5173
+```
+
 ---
 
-# 💡 Future Improvements
+## Deployment
+
+The application is deployed as two services.
+
+Frontend
+
+https://ai-study-assistant-five-rouge.vercel.app
+
+Backend
+
+https://ai-study-assistant-8ogw.onrender.com
+
+The frontend communicates with the backend through secure HTTP requests. The backend is responsible for interacting with Google Gemini and protecting the API key.
+
+---
+
+## Testing
+
+The project was manually tested using different input scenarios.
+
+### Normal Input
+
+- Study topic
+- Custom notes
+- Lecture PDFs
+
+### Error Scenarios
+
+- Empty input
+- Invalid AI response
+- Network interruption
+- API request failure
+- Slow AI response
+
+### User Interaction
+
+- Flashcard navigation
+- Quiz scoring
+- PDF upload
+- PDF download
+- Copy study kit
+- Study history search
+- Delete history
+
+These scenarios were tested to ensure the application remains responsive and provides meaningful feedback to the user.
+
+---
+
+## AI Usage
+
+AI tools (ChatGPT) were used as a development assistant for brainstorming ideas, debugging, reviewing implementation approaches, and improving documentation.
+
+All application logic, feature implementation, Google Gemini integration, frontend development, backend development, testing, deployment, and final verification were completed and validated by the author.
+
+---
+
+## Known Limitations
+
+- AI responses depend on the quality of the provided input.
+- Very large PDF documents may require additional processing time.
+- Study history is stored only in the browser using Local Storage.
+- The application currently supports a single AI provider.
+- Internet connectivity is required for AI content generation.
+
+---
+
+## Future Improvements
+
+Possible enhancements include
 
 - User authentication
 - Cloud database integration
-- AI difficulty levels
-- Dark/Light mode
-- Multiple AI model support
-- Share study kits
-- Voice-based study mode
-- AI-powered follow-up refinement
-- Streaming AI responses
+- Cross-device study history
+- Multiple AI provider support
+- AI difficulty selection
+- Voice-assisted learning
+- Dark mode
+- Real-time streaming AI responses
+- Study kit sharing
+- Personalized learning recommendations
 
 ---
 
-# 👨‍💻 Author
+## Time Spent
+
+Approximately **8 hours**
+
+| Task | Time |
+|------|------|
+| Project setup and architecture | 1 hour |
+| Gemini API integration | 1.5 hours |
+| PDF upload and processing | 1 hour |
+| Flashcards and quiz implementation | 1.5 hours |
+| Study history and local storage | 1 hour |
+| Error handling and validation | 1 hour |
+| UI refinement, testing and deployment | 1 hour |
+
+---
+
+## Screenshots
+
+### Home
+
+```md
+![Home](screenshots/home.png)
+```
+
+### Generated Study Kit
+
+```md
+![Study Kit](screenshots/study-kit.png)
+```
+
+### Flashcards
+
+```md
+![Flashcards](screenshots/flashcards.png)
+```
+
+### Quiz
+
+```md
+![Quiz](screenshots/quiz.png)
+```
+
+### Study History
+
+```md
+![History](screenshots/history.png)
+```
+
+---
+
+## Author
 
 **Srikanth Paruchuri**
 
-GitHub:
+GitHub
+
 https://github.com/srikanthP1106
+
+LinkedIn
+
+https://www.linkedin.com/in/srikanth-paruchuri-476089259
 
 ---
 
-# 📄 License
+## License
 
 This project is licensed under the MIT License.
