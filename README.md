@@ -1,11 +1,10 @@
 # 📚 AI Study Assistant
 
-An AI-powered full-stack web application that transforms study notes into concise summaries, interactive flashcards, and quizzes using Google Gemini AI. Users can upload PDF lecture notes, generate study material instantly, and save previous study sessions.
+An AI-powered full-stack web application that transforms study notes into concise summaries, interactive flashcards, and interactive quizzes using Google Gemini AI. Users can paste study notes or upload PDF lecture notes to instantly generate AI-powered learning material. The application provides an engaging and interactive way to study while handling unreliable AI responses gracefully.
 
 ---
 
-
-## 🚀 Live Demo
+# 🚀 Live Demo
 
 **Frontend:** https://ai-study-assistant-five-rouge.vercel.app
 
@@ -13,27 +12,70 @@ An AI-powered full-stack web application that transforms study notes into concis
 
 ---
 
-## ✨ Features
+# ✨ Features
 
 - 🤖 AI-generated study summaries
 - 🧠 AI-generated flashcards
 - 📝 Interactive multiple-choice quizzes
-- 📄 PDF lecture notes upload
-- 📥 Download study kit as PDF
+- 📄 Upload lecture notes as PDF
+- 📥 Download generated study kit as PDF
 - 📋 Copy study kit to clipboard
-- 🕘 Study history with search
+- 🕘 Study history with search functionality
 - 🗑️ Delete study history
 - 💾 Local storage persistence
 - ⏳ Loading spinner
 - 🔔 Toast notifications
-- 🔄 Retry logic for AI requests
-- ❌ Robust error handling
+- 🔄 Retry logic for failed AI requests
+- ❌ Robust AI response validation and error handling
+- 📱 Responsive design for desktop and mobile devices
 
 ---
 
-## 🛠️ Tech Stack
+# 🎯 Usage
 
-### Frontend
+1. Enter a study topic or paste your study notes into the text area.
+2. (Optional) Upload a PDF containing lecture notes.
+3. Click **Generate Study Kit**.
+4. Review the AI-generated summary.
+5. Flip the flashcards to test your knowledge.
+6. Take the interactive quiz and view your score.
+7. Copy or download the generated study kit.
+8. Access previous study sessions from the history panel.
+
+---
+
+# 🤖 AI Usage
+
+This project was developed with assistance from AI tools (ChatGPT) for brainstorming ideas, debugging, reviewing code, improving error handling, and refining the application. All application logic, customization, integration, testing, deployment, and final implementation were completed and verified by the author.
+
+---
+
+# 🔒 API Security
+
+The Google Gemini API key is **never exposed in the browser**.
+
+All AI requests are securely routed through an Express.js backend using environment variables (`.env`). This protects the API key while allowing the frontend to communicate safely with the AI model.
+
+---
+
+# ⚠️ Known Limitations
+
+- AI responses depend on the quality of the input provided by the user.
+- Very large PDF files may require additional processing time.
+- Occasionally the AI may return malformed JSON, which is handled using validation, retry logic, and user-friendly error messages.
+- Study history is stored locally in the browser and is not synchronized across multiple devices.
+
+---
+
+# ⏱️ Time Spent
+
+Approximately **8 hours**.
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
 
 - React
 - Vite
@@ -41,23 +83,23 @@ An AI-powered full-stack web application that transforms study notes into concis
 - React Icons
 - React Toastify
 
-### Backend
+## Backend
 
 - Node.js
 - Express.js
 
-### AI
+## AI
 
 - Google Gemini API
 
-### Libraries
+## Libraries
 
 - jsPDF
 - pdf.js
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
 ai-study-assistant/
@@ -73,75 +115,93 @@ ai-study-assistant/
 │   ├── package.json
 │   └── .env
 │
+├── screenshots/
+│   ├── home.png
+│   ├── study-kit.png
+│   ├── flashcards.png
+│   ├── quiz.png
+│   └── history.png
+│
 ├── public/
+│
 └── README.md
 ```
 
 ---
 
-## 📸 Screenshots
+# 📸 Screenshots
 
-### 🏠 Home Page
+## 🏠 Home Page
 
 ![Home](screenshots/home.png)
 
-### 📚 Generated Study Kit
+---
+
+## 📚 Generated Study Kit
 
 ![Study Kit](screenshots/study-kit.png)
 
-### 🧠 Flashcards
+---
+
+## 🧠 Flashcards
 
 ![Flashcards](screenshots/flashcards.png)
 
-### 📝 Interactive Quiz
+---
+
+## 📝 Interactive Quiz
 
 ![Quiz](screenshots/quiz.png)
 
-### 🕘 Study History
+---
+
+## 🕘 Study History
 
 ![History](screenshots/history.png)
 
-## ⚙️ Installation
+---
 
-### Clone the repository
+# ⚙️ Installation
+
+## Clone the repository
 
 ```bash
 git clone https://github.com/srikanthP1106/ai-study-assistant.git
 ```
 
-### Navigate to the project
+## Navigate to the project
 
 ```bash
 cd ai-study-assistant
 ```
 
-### Install frontend dependencies
+## Install frontend dependencies
 
 ```bash
 npm install
 ```
 
-### Install backend dependencies
+## Install backend dependencies
 
 ```bash
 cd server
 npm install
 ```
 
-### Create a `.env` file inside the `server` folder
+## Create a `.env` file inside the `server` folder
 
 ```env
-GEMINI_API_KEY=YOUR_API_KEY
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 ```
 
-### Start the backend
+## Start the backend server
 
 ```bash
 cd server
 npm start
 ```
 
-### Start the frontend
+## Start the frontend
 
 ```bash
 npm run dev
@@ -149,7 +209,7 @@ npm run dev
 
 ---
 
-## 💡 Future Improvements
+# 💡 Future Improvements
 
 - User authentication
 - Cloud database integration
@@ -158,17 +218,20 @@ npm run dev
 - Multiple AI model support
 - Share study kits
 - Voice-based study mode
+- AI-powered follow-up refinement
+- Streaming AI responses
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Srikanth Paruchuri**
 
-- GitHub: https://github.com/srikanthP1106
+GitHub:
+https://github.com/srikanthP1106
 
 ---
 
-## 📄 License
+# 📄 License
 
 This project is licensed under the MIT License.
