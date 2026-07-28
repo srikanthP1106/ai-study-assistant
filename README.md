@@ -4,11 +4,12 @@ An AI-powered full-stack web application that transforms study notes into concis
 
 ---
 
+
 ## 🚀 Live Demo
 
-**Frontend:** https://your-vercel-url.vercel.app
+**Frontend:** https://ai-study-assistant-five-rouge.vercel.app
 
-**Backend API:** https://your-render-url.onrender.com
+**Backend API:** https://ai-study-assistant-8ogw.onrender.com
 
 ---
 
